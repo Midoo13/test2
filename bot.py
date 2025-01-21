@@ -16,7 +16,7 @@ def is_authorized(user_id):
     admin_ids = {"1142240722"}  # ضع ID الأدمن هنا
     return user_id in admin_ids
     
-GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
+GIST_URL = 'https://api.github.com/gists/3284dd6c8eda13c22c672137d38bb4a9'
 MAX_LINES = 20  # Increased limit to match the first code
 
 def fetch_numbers_from_gist():
