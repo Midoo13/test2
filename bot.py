@@ -1,15 +1,19 @@
 import telebot
 import requests
 import time
+import logging
 
 from sum_processor import process_sum
 from keep_alive import keep_alive
+
+# Logging setup
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 keep_alive()  # This will keep the bot alive
 
 API_TOKEN = '7424829556:AAEarbNLH2Or_XD8P83xwI6qOiDj2zIuTOU'
 GIST_URL = 'https://api.github.com/gists/e43b0b7ea0c55ed197666843b065132b'
-GIST_TOKEN = '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'
+GIST_TOKEN = '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'
 
 bot = telebot.TeleBot(API_TOKEN)
 
@@ -18,31 +22,35 @@ MAX_LINES = 20  # Increased limit to match the first code
 
 # Fetch numbers from Gist
 def fetch_numbers_from_gist():
+    logging.info("Fetching numbers from Gist...")
     try:
         response = requests.get(GIST_URL, headers={'Authorization': f'token {GIST_TOKEN}'})
         response.raise_for_status()
         gist_data = response.json()
         if 'numbers.txt' not in gist_data.get('files', {}):
-            print("File 'numbers.txt' not found in the Gist.")
+            logging.warning("File 'numbers.txt' not found in the Gist.")
             return set()
         file_content = gist_data['files']['numbers.txt']['content']
         return set(file_content.split())
     except requests.RequestException as e:
-        print(f"Error fetching numbers from Gist: {e}")
+        logging.error(f"Error fetching numbers from Gist: {e}")
         return set()
 
 # Update numbers in Gist
 def update_gist_numbers(numbers):
+    logging.info("Updating numbers in Gist...")
     try:
         content = '\n'.join(numbers)
         gist_data = {"files": {"numbers.txt": {"content": content}}}
         response = requests.patch(GIST_URL, json=gist_data, headers={'Authorization': f'token {GIST_TOKEN}'})
         response.raise_for_status()
+        logging.info("Gist updated successfully.")
     except requests.RequestException as e:
-        print(f"Error updating Gist: {e}")
+        logging.error(f"Error updating Gist: {e}")
 
 # Check if user is authorized
 def is_authorized(user_id):
+    logging.info(f"Checking authorization for user: {user_id}")
     authorized_users = fetch_numbers_from_gist()
     return str(user_id) in AUTHORIZED_USER_ID or str(user_id) in authorized_users
 
@@ -90,6 +98,10 @@ def delete_number(message):
 @bot.message_handler(commands=['scan', 'X', 'chk', 'x', 'cc'])
 def handle_scan(message):
     user_id = str(message.from_user.id)
+    if len(message.text.split()) < 2:
+        bot.send_message(message.chat.id, "يرجى إدخال بيانات صحيحة مع الأمر.")
+        return
+
     authorized_users = fetch_numbers_from_gist()
     if user_id not in authorized_users:
         bot.send_message(
@@ -115,11 +127,12 @@ def handle_scan(message):
             else:
                 tot += 1
                 bot.send_message(message.chat.id, f"<b>UR card</b>⇾ <code>{line.strip()}</code>\n{result}", parse_mode="HTML")
-                time.sleep(5)
+                time.sleep(1)
         total = vbv + dd + tot
         summary = f'<b>TOTAL CARDS = {total}</b>\n<b>LIVE CARDS✅ = {vbv}</b>\n<b>DEAD CARDS❌ = {dd}</b>'
         bot.send_message(message.chat.id, summary, parse_mode="HTML")
     except Exception as e:
+        logging.error(f"Error in handle_scan: {e}")
         bot.send_message(message.chat.id, f"حدث خطأ: {str(e)}")
-
+        
 bot.polling(none_stop=True, interval=0, timeout=60)
