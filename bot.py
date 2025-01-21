@@ -5,14 +5,14 @@ from keep_alive import keep_alive
 
 keep_alive()  # This will keep the bot alive
 
-API_TOKEN = '7416403497:AAG13CJXmClphewXNqtHjE7hYqgxuG1fhas' # هنا يوضع توكن البوت الخاص بك 
+API_TOKEN = '7424829556:AAEarbNLH2Or_XD8P83xwI6qOiDj2zIuTOU' # هنا يوضع توكن البوت الخاص بك 
 GIST_TOKEN = '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'
 
 
 bot = telebot.TeleBot(API_TOKEN)
 
 
-AUTHORIZED_USER_ID = {'5149942884'}  # هنا يوضع معرف الادمن الخاص بك 
+AUTHORIZED_USER_ID = {'1142240722'}  # هنا يوضع معرف الادمن الخاص بك 
 GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
 MAX_LINES = 20  # عدد السطور المسموحه في كل مره 
 
