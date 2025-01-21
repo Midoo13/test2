@@ -48,15 +48,19 @@ def is_authorized(user_id):
 @bot.message_handler(commands=['add'])
 def add_number(message):
     user_id = str(message.from_user.id)
+
+    # التحقق من الصلاحيات
     if not is_authorized(user_id):
         bot.send_message(message.chat.id, "You do not have permission to use this command ❌")
         return
-    
+
+    # تقسيم الأمر والتحقق من الصيغة
     command_parts = message.text.split()
     if len(command_parts) != 2:
         bot.send_message(message.chat.id, "يرجى استخدام الصيغة الصحيحة: /add <number>")
         return
     
+    # إدارة الأرقام
     number = command_parts[1]
     existing_numbers = fetch_numbers_from_gist()
     if number in existing_numbers:
@@ -65,27 +69,6 @@ def add_number(message):
         existing_numbers.add(number)
         update_gist_numbers(existing_numbers)
         bot.send_message(message.chat.id, "The user has been added successfully ✅")
-
-# معالج أمر الحذف
-@bot.message_handler(commands=['del'])
-def delete_number(message):
-    user_id = str(message.from_user.id)
-    if not is_authorized(user_id):
-        bot.send_message(message.chat.id, "You do not have permission to use this command ❌")
-        return
-    command_parts = message.text.split()
-    if len(command_parts) != 2:
-        bot.send_message(message.chat.id, "يرجى استخدام الصيغة الصحيحة: /del <number>")
-        return
-    
-    number = command_parts[1]
-    existing_numbers = fetch_numbers_from_gist()
-    if number not in existing_numbers:
-        bot.send_message(message.chat.id, "This user does not exist.")
-    else:
-        existing_numbers.remove(number)
-        update_gist_numbers(existing_numbers)
-        bot.send_message(message.chat.id, "The user has been deleted successfully ✅")
 
 @bot.message_handler(commands=['scan', 'X', 'chk', 'x', 'cc'])
 def handle_scan(message):
