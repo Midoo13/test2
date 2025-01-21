@@ -29,6 +29,7 @@ def write_users(users):
 
 # التحقق من الصلاحيات
 def is_authorized(user_id):
+    logging.info(f"Checking authorization for user: {user_id}")
     authorized_users = read_users()
     return str(user_id) in AUTHORIZED_USER_ID or str(user_id) in authorized_users
 
@@ -79,7 +80,7 @@ def handle_scan(message):
     if not is_authorized(user_id):
         bot.send_message(
             message.chat.id,
-            f'You do not have permission to use the bot.\nContact me to subscribe to the bot.\n\n<b>UR TELEGRAM ID: {user_id}</b>',
+            f'You do not have permission to use the bot.\nContact me to subscribe to the bot.\n\n<b>BY: Midoo (<a href="https://t.me/Mdoo100">https://t.me/Mdoo100</a>)</b>\n\n<b>UR TELEGRAM ID:</b> {user_id}',
             parse_mode="HTML", disable_web_page_preview=True)
         return
     bot.send_message(message.chat.id, "Pls Wait Checking your cards ⏳⏳")
@@ -89,7 +90,6 @@ def handle_scan(message):
         if len(lines) > MAX_LINES:
             lines = lines[:MAX_LINES]
             bot.send_message(message.chat.id, f"تم تجاوز الحد الأقصى لعدد الأسطر، معالجة أول {MAX_LINES} أسطر فقط.")
-        # عملية المعالجة الوهمية
         bot.send_message(message.chat.id, "Processing your data... (Simulation)")
     except Exception as e:
         logging.error(f"Error in handle_scan: {e}")
