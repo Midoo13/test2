@@ -1,4 +1,1 @@
-pyrogram
-kvsqlite
-requests
-pytelegrambotapi
+worker: python main.py
