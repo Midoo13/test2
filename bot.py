@@ -8,12 +8,12 @@ from keep_alive import keep_alive
 keep_alive()  # This will keep the bot alive
 
 API_TOKEN = '7424829556:AAEarbNLH2Or_XD8P83xwI6qOiDj2zIuTOU'
-GIST_URL = 'https://api.github.com/gists/gist_id'
+GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
+GIST_TOKEN = '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'
 
 bot = telebot.TeleBot(API_TOKEN)
 
 AUTHORIZED_USER_ID = {'1142240722'}  # Admin User ID
-GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
 MAX_LINES = 20  # Increased limit to match the first code
 
 # Fetch numbers from Gist
