@@ -13,7 +13,7 @@ GIST_TOKEN = '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'
 bot = telebot.TeleBot(API_TOKEN)
 
 def is_authorized(user_id):
-    admin_ids = {"1142240722"}  # ضع ID الأدمن الخاص بك هنا
+    admin_ids = {"1142240722"}  # ضع ID الأدمن هنا
     return user_id in admin_ids
     
 GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
