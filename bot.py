@@ -8,7 +8,7 @@ from keep_alive import keep_alive
 keep_alive()  # This will keep the bot alive
 
 API_TOKEN = '7424829556:AAEarbNLH2Or_XD8P83xwI6qOiDj2zIuTOU'
-GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
+GIST_URL = 'https://api.github.com/gists/e43b0b7ea0c55ed197666843b065132b'
 GIST_TOKEN = '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'
 
 bot = telebot.TeleBot(API_TOKEN)
