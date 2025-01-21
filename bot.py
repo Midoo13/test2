@@ -16,6 +16,7 @@ AUTHORIZED_USER_ID = {'1142240722'}  # Admin User ID
 GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
 MAX_LINES = 20  # Increased limit to match the first code
 
+# Fetch numbers from Gist
 def fetch_numbers_from_gist():
     try:
         response = requests.get(GIST_URL, headers={'Authorization': f'token {GIST_TOKEN}'})
@@ -30,6 +31,7 @@ def fetch_numbers_from_gist():
         print(f"Error fetching numbers from Gist: {e}")
         return set()
 
+# Update numbers in Gist
 def update_gist_numbers(numbers):
     try:
         content = '\n'.join(numbers)
@@ -39,9 +41,12 @@ def update_gist_numbers(numbers):
     except requests.RequestException as e:
         print(f"Error updating Gist: {e}")
 
+# Check if user is authorized
 def is_authorized(user_id):
-    return str(user_id) in AUTHORIZED_USER_ID
+    authorized_users = fetch_numbers_from_gist()
+    return str(user_id) in AUTHORIZED_USER_ID or str(user_id) in authorized_users
 
+# Add a new number
 @bot.message_handler(commands=['add'])
 def add_number(message):
     user_id = str(message.from_user.id)
@@ -61,6 +66,7 @@ def add_number(message):
         update_gist_numbers(existing_numbers)
         bot.send_message(message.chat.id, "The user has been added successfully ✅")
 
+# Delete a number
 @bot.message_handler(commands=['del'])
 def delete_number(message):
     user_id = str(message.from_user.id)
@@ -80,6 +86,7 @@ def delete_number(message):
         update_gist_numbers(existing_numbers)
         bot.send_message(message.chat.id, "This User Is Removed Successfully ✅")
 
+# Handle scan commands
 @bot.message_handler(commands=['scan', 'X', 'chk', 'x', 'cc'])
 def handle_scan(message):
     user_id = str(message.from_user.id)
