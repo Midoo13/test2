@@ -5,7 +5,7 @@ from keep_alive import keep_alive
 
 keep_alive()  # This will keep the bot alive
 
-API_TOKEN = '7424829556:AAEarbNLH2Or_XD8P83xwI6qOiDj2zIuTOU' # هنا يوضع توكن البوت الخاص بك 
+API_TOKEN = 'm' # هنا يوضع توكن البوت الخاص بك 
 GIST_TOKEN = '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'
 
 
