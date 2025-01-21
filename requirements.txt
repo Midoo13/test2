@@ -1,7 +1,6 @@
 pyrogram
 kvsqlite
 requests
-pytelegrambotapib
 ﻿anyio==4.8.0
 attrs==23.2.0
 beautifulsoup4==4.12.3
