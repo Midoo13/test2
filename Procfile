@@ -1,0 +1,4 @@
+pyrogram
+kvsqlite
+requests
+pytelegrambotapi
