@@ -4,12 +4,12 @@ from sum_processor import process_sum
 import re
 import base64
 # توكن بوت تليجرام
-API_TOKEN = '7416403497:AAE74rtu-2jMn7umERsn1mvxM9OVsTBwnyI'
+API_TOKEN = '7156041036:AAEB0O_sdg8DwNFY-mVgtUoYu7aLMys7gLE'
 GIST_TOKEN = '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'
 bot = telebot.TeleBot(API_TOKEN)
 
 # معرفات المستخدمين الذين لديهم حق الوصول للأوامر
-AUTHORIZED_USER_ID = { '5149942884' ,'1167798421'}  # معرف المستخدم الذي يمكنه استخدام أوامر /add و /del
+AUTHORIZED_USER_ID = { '1689826750' }  # معرف المستخدم الذي يمكنه استخدام أوامر /add و /del
 
 # رابط Gist
 GIST_URL = 'https://api.github.com/gists/a23e1511367cce16d168cccbdd942a04'
