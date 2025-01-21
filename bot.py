@@ -7,12 +7,15 @@ from keep_alive import keep_alive
 
 keep_alive()  # This will keep the bot alive
 
-API_TOKEN = '7424829556:AAE6Au-B5wGxjMTGi65_H9h2SUQugBaFn3s'
+API_TOKEN = '7424829556:AAEarbNLH2Or_XD8P83xwI6qOiDj2zIuTOU'
 GIST_TOKEN = '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'
 
 bot = telebot.TeleBot(API_TOKEN)
 
-AUTHORIZED_USER_ID = {'1142240722'}  # Admin User ID
+def is_authorized(user_id):
+    admin_ids = {"1142240722"}  # ضع ID الأدمن الخاص بك هنا
+    return user_id in admin_ids
+    
 GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
 MAX_LINES = 20  # Increased limit to match the first code
 
@@ -48,10 +51,12 @@ def add_number(message):
     if not is_authorized(user_id):
         bot.send_message(message.chat.id, "You do not have permission to use this command ❌")
         return
+    
     command_parts = message.text.split()
     if len(command_parts) != 2:
         bot.send_message(message.chat.id, "يرجى استخدام الصيغة الصحيحة: /add <number>")
         return
+    
     number = command_parts[1]
     existing_numbers = fetch_numbers_from_gist()
     if number in existing_numbers:
@@ -61,6 +66,7 @@ def add_number(message):
         update_gist_numbers(existing_numbers)
         bot.send_message(message.chat.id, "The user has been added successfully ✅")
 
+# معالج أمر الحذف
 @bot.message_handler(commands=['del'])
 def delete_number(message):
     user_id = str(message.from_user.id)
@@ -71,14 +77,15 @@ def delete_number(message):
     if len(command_parts) != 2:
         bot.send_message(message.chat.id, "يرجى استخدام الصيغة الصحيحة: /del <number>")
         return
+    
     number = command_parts[1]
     existing_numbers = fetch_numbers_from_gist()
     if number not in existing_numbers:
-        bot.send_message(message.chat.id, "This User Is Not Found.")
+        bot.send_message(message.chat.id, "This user does not exist.")
     else:
         existing_numbers.remove(number)
         update_gist_numbers(existing_numbers)
-        bot.send_message(message.chat.id, "This User Is Removed Successfully ✅")
+        bot.send_message(message.chat.id, "The user has been deleted successfully ✅")
 
 @bot.message_handler(commands=['scan', 'X', 'chk', 'x', 'cc'])
 def handle_scan(message):
