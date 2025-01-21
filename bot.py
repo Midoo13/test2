@@ -7,12 +7,12 @@ from keep_alive import keep_alive
 
 keep_alive()  # This will keep the bot alive
 
-API_TOKEN = '7156041036:AAEB0O_sdg8DwNFY-mVgtUoYu7aLMys7gLE'
+API_TOKEN = '7424829556:AAE6Au-B5wGxjMTGi65_H9h2SUQugBaFn3s'
 GIST_TOKEN = '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'
 
 bot = telebot.TeleBot(API_TOKEN)
 
-AUTHORIZED_USER_ID = {'1689826750'}  # Admin User ID
+AUTHORIZED_USER_ID = {'1142240722'}  # Admin User ID
 GIST_URL = 'https://api.github.com/gists/981d16aec654291008480155fb7eee53'
 MAX_LINES = 20  # Increased limit to match the first code
 
@@ -80,7 +80,7 @@ def delete_number(message):
         update_gist_numbers(existing_numbers)
         bot.send_message(message.chat.id, "This User Is Removed Successfully ✅")
 
-@bot.message_handler(commands=['scan', 'SCAN', 'chk', 'x', 'cc'])
+@bot.message_handler(commands=['scan', 'X', 'chk', 'x', 'cc'])
 def handle_scan(message):
     user_id = str(message.from_user.id)
     authorized_users = fetch_numbers_from_gist()
